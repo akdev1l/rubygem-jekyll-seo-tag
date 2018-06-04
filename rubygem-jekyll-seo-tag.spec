@@ -1,0 +1,85 @@
+%global gem_name jekyll-seo-tag
+
+Name:           rubygem-%{gem_name}
+Version:        2.5.0
+Release:        1%{?dist}
+Summary:        Jekyll plugin to add SEO metadata tags
+License:        MIT
+
+URL:            https://github.com/benbalter/jekyll-seo-tag
+Source0:        https://rubygems.org/gems/%{gem_name}-%{version}.gem
+
+BuildRequires:  ruby(release)
+BuildRequires:  rubygems-devel
+BuildRequires:  ruby >= 2.3.0
+
+BuildArch:      noarch
+
+%description
+A Jekyll plugin to add metadata tags for search engines and social networks to
+better index and display your site's content.
+
+
+%package        doc
+Summary:        Documentation for %{name}
+Requires:       %{name} = %{version}-%{release}
+BuildArch:      noarch
+
+%description    doc
+Documentation for %{name}.
+
+
+%prep
+%setup -q -n %{gem_name}-%{version}
+
+
+%build
+gem build ../%{gem_name}-%{version}.gemspec
+
+%gem_install
+
+
+%install
+mkdir -p %{buildroot}%{gem_dir}
+cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
+
+
+%check
+pushd .%{gem_instdir}
+# Test suite seems broken, tries to load non-existing spec_helper gem.
+# rspec spec
+popd
+
+
+%files
+%dir %{gem_instdir}
+
+%exclude %{gem_instdir}/.gitignore
+%exclude %{gem_instdir}/.rubocop.yml
+%exclude %{gem_instdir}/.travis.yml
+%license %{gem_instdir}/LICENSE.txt
+%exclude %{gem_instdir}/jekyll-seo-tag.gemspec
+
+%{gem_libdir}
+
+%{gem_instdir}/script
+
+%exclude %{gem_cache}
+
+%{gem_spec}
+
+
+%files doc
+%doc %{gem_docdir}
+%doc %{gem_instdir}/History.markdown
+%doc %{gem_instdir}/docs
+
+%exclude %{gem_instdir}/.rspec
+
+%{gem_instdir}/Gemfile
+
+
+%changelog
+* Fri Jun 01 2018 Fabio Valentini <decathorpe@gmail.com> - 2.5.0-1
+- Initial package
+
