@@ -1,8 +1,8 @@
 %global gem_name jekyll-seo-tag
 
 Name:           rubygem-%{gem_name}
-Version:        2.5.0
-Release:        3%{?dist}
+Version:        2.6.0
+Release:        1%{?dist}
 Summary:        Jekyll plugin to add SEO metadata tags
 License:        MIT
 
@@ -52,12 +52,13 @@ popd
 
 
 %files
+%license %{gem_instdir}/LICENSE.txt
+
 %dir %{gem_instdir}
 
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.travis.yml
-%license %{gem_instdir}/LICENSE.txt
 %exclude %{gem_instdir}/jekyll-seo-tag.gemspec
 
 %{gem_libdir}
@@ -80,6 +81,9 @@ popd
 
 
 %changelog
+* Sat Mar 16 2019 Fabio Valentini <decathorpe@gmail.com> - 2.6.0-1
+- Update to version 2.6.0.
+
 * Sat Feb 02 2019 Fedora Release Engineering <releng@fedoraproject.org> - 2.5.0-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
 
