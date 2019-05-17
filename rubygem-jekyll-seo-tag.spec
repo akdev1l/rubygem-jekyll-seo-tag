@@ -1,7 +1,7 @@
 %global gem_name jekyll-seo-tag
 
 Name:           rubygem-%{gem_name}
-Version:        2.6.0
+Version:        2.6.1
 Release:        1%{?dist}
 Summary:        Jekyll plugin to add SEO metadata tags
 License:        MIT
@@ -44,13 +44,6 @@ mkdir -p %{buildroot}%{gem_dir}
 cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 
 
-%check
-pushd .%{gem_instdir}
-# Test suite seems broken, tries to load non-existing spec_helper gem.
-# rspec spec
-popd
-
-
 %files
 %license %{gem_instdir}/LICENSE.txt
 
@@ -58,6 +51,7 @@ popd
 
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
+%exclude %{gem_instdir}/.rubocop_todo.yml
 %exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/jekyll-seo-tag.gemspec
 
@@ -81,6 +75,9 @@ popd
 
 
 %changelog
+* Fri May 17 2019 Fabio Valentini <decathorpe@gmail.com> - 2.6.1-1
+- Update to version 2.6.1.
+
 * Sat Mar 16 2019 Fabio Valentini <decathorpe@gmail.com> - 2.6.0-1
 - Update to version 2.6.0.
 
