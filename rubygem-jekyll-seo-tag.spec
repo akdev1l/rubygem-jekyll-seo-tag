@@ -2,7 +2,7 @@
 
 Name:           rubygem-%{gem_name}
 Version:        2.6.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Jekyll plugin to add SEO metadata tags
 License:        MIT
 
@@ -75,6 +75,9 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 
 
 %changelog
+* Thu Jan 30 2020 Fedora Release Engineering <releng@fedoraproject.org> - 2.6.1-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
 * Fri Jul 26 2019 Fedora Release Engineering <releng@fedoraproject.org> - 2.6.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
