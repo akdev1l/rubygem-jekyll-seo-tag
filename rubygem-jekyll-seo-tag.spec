@@ -53,7 +53,6 @@ cp -a .%{gem_dir}/* %{buildroot}%{gem_dir}/
 %exclude %{gem_instdir}/.gitignore
 %exclude %{gem_instdir}/.rubocop.yml
 %exclude %{gem_instdir}/.rubocop_todo.yml
-%exclude %{gem_instdir}/.travis.yml
 %exclude %{gem_instdir}/jekyll-seo-tag.gemspec
 
 %{gem_libdir}
